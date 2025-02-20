@@ -1,5 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0f2c;
+  color: white;
+}
+
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -35,4 +44,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

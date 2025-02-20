@@ -1,0 +1,121 @@
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0f2c 0%, #1a1f3c 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 120px 20px;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.gradient-text {
+  display: block;
+  background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 5rem;
+}
+
+.hero-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.cta-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.cta-button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button.primary {
+  background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+  color: white;
+  box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+.cta-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+}
+
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.float-item {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+}
+
+.eth {
+  width: 80px;
+  top: 20%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.btc {
+  width: 100px;
+  top: 40%;
+  left: 10%;
+  animation-delay: 2s;
+}
+
+.prize {
+  width: 120px;
+  bottom: 20%;
+  right: 20%;
+  animation-delay: 0s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+} 
