@@ -27,7 +27,7 @@ const features = [
 
 function WhyChooseUs() {
   return (
-    <section className="why-choose-us">
+    <section className="why-choose-us" id="about">
       <motion.div 
         className="background-glow"
         animate={{
@@ -47,15 +47,15 @@ function WhyChooseUs() {
       >
         The EnterPrize Advantage
       </motion.h2>
-      <div className="features-grid">
+      <div className="features-carousel">
         {features.map((feature, index) => (
           <motion.div 
             className="feature-card"
             key={index}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.2 }}
+            transition={{ delay: index * 0.3 }}
           >
             <div className="feature-icon">{feature.icon}</div>
             <h3>{feature.title}</h3>

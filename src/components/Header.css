@@ -28,6 +28,12 @@
   height: 50px;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
 .nav-links {
   display: flex;
   gap: 40px;
@@ -123,6 +129,15 @@
     text-align: center;
     margin-top: 10px;
   }
+
+  .social-links {
+    margin-left: auto;
+  }
+
+  .social-link img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .social-links {
@@ -131,23 +146,21 @@
 }
 
 .social-link {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   padding: 5px;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .social-link img {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s;
-}
-
-.social-link img:hover {
-  transform: scale(1.1);
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
 } 

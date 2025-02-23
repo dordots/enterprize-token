@@ -22,7 +22,7 @@ const steps = [
 
 function HowItWorks() {
   return (
-    <section className="how-it-works">
+    <section className="how-it-works" id="how-it-works">
       <motion.h2 
         className="section-title"
         initial={{ opacity: 0, y: 20 }}

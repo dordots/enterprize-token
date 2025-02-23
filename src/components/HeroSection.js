@@ -38,14 +38,14 @@ function HeroSection() {
             transition={{ delay: 0.6 }}
             style={{ marginBottom: '0' }}
           >
-            <button className="cta-button primary">
+            <a href="#how-it-works" className="cta-button primary">
               <span>Start Winning Now</span>
               <span className="emoji">🎉</span>
-            </button>
-            <button className="cta-button secondary">
-              <span>Watch How</span>
-              <span className="emoji">📺</span>
-            </button>
+            </a>
+            <a href="#about" className="cta-button secondary">
+              <span>Learn More</span>
+              <span className="emoji">📚</span>
+            </a>
           </motion.div>
 
           <div className="floating-elements">

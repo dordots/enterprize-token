@@ -25,7 +25,7 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <section className="testimonials">
+    <section className="testimonials" id="winners">
       <motion.h2 
         className="section-title"
         initial={{ opacity: 0, y: 20 }}
