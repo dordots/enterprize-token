@@ -62,4 +62,28 @@
 
 .testimonials h2 {
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 60px 20px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 25px;
+  }
+
+  .testimonial-card::before {
+    font-size: 80px;
+    top: -10px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
 } 

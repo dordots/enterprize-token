@@ -6,4 +6,27 @@
 
 .why-choose-us h2 {
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .why-choose-us {
+    padding: 60px 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 25px;
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
 } 

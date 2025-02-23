@@ -42,6 +42,7 @@
   display: flex;
   gap: 20px;
   justify-content: center;
+  margin-bottom: 0;
 }
 
 .cta-button {
@@ -118,4 +119,34 @@
 @keyframes gridMove {
   0% { transform: translateY(0); }
   100% { transform: translateY(-100%); }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .gradient-text {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .cta-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .floating-elements {
+    display: none; /* או להקטין את הגודל */
+  }
 } 

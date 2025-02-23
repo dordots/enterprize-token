@@ -17,7 +17,7 @@ function SplashScreen() {
         animate={{ scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <img src="/images/logo.png" alt="EnterPrize Token" />
+        <img src="/images/logo.jpg" alt="EnterPrize Token" />
         <motion.div 
           className="loading-bar"
           initial={{ width: 0 }}

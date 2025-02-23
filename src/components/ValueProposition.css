@@ -58,7 +58,23 @@
 }
 
 @media (max-width: 768px) {
+  .value-proposition {
+    padding: 60px 20px;
+  }
+
   .values-container {
     grid-template-columns: 1fr;
+  }
+
+  .value-card {
+    padding: 30px 20px;
+  }
+
+  .value-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .value-icon {
+    font-size: 3rem;
   }
 } 
