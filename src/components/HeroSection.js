@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useWeb3React } from '@web3-react/core';
 import './HeroSection.css'; // ניצור קובץ CSS לרכיב זה
 
-function HeroSection() {
+function HeroSection({ showTelegramDialog, setShowTelegramDialog }) {
+  const { account } = useWeb3React();
+
+  const goToTelegramBot = () => {
+    const telegramBotUrl = `https://t.me/your_bot_username?start=${account}`;
+    window.open(telegramBotUrl, '_blank');
+    setShowTelegramDialog(false);
+  };
+
   return (
     <div style={{ padding: '20px 0' }}>
       <motion.section 
@@ -54,6 +63,17 @@ function HeroSection() {
             <img src="/images/xrp.png" className="float-item prize" alt="Xrp" />
           </div>
         </div>
+
+        {showTelegramDialog && (
+          <div className="telegram-dialog">
+            <div className="dialog-content">
+              <h3>Register for Updates</h3>
+              <p>Would you like to receive updates about your lottery wins on Telegram?</p>
+              <button onClick={goToTelegramBot}>Yes, send me to Telegram!</button>
+              <button onClick={() => setShowTelegramDialog(false)}>No, thanks</button>
+            </div>
+          </div>
+        )}
       </motion.section>
     </div>
   );

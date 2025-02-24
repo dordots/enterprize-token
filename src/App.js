@@ -21,6 +21,7 @@ function getLibrary(provider) {
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showTelegramDialog, setShowTelegramDialog] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 3000);
@@ -32,8 +33,8 @@ function App() {
         {loading && <SplashScreen />}
       </AnimatePresence>
       <div className="App">
-        <Header />
-        <HeroSection />
+        <Header onWalletConnect={() => setShowTelegramDialog(true)} />
+        <HeroSection showTelegramDialog={showTelegramDialog} setShowTelegramDialog={setShowTelegramDialog} />
         <HowItWorks />
         <ValueProposition />
         <WhyChooseUs />

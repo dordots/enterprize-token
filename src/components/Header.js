@@ -4,10 +4,11 @@ import { useWeb3React } from '@web3-react/core';
 import { injected } from '../utils/web3Config';
 import './Header.css'; // ניצור קובץ CSS לרכיב זה
 
-function Header() {
+function Header({ onWalletConnect }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { active, account, activate, deactivate } = useWeb3React();
   const [error, setError] = useState('');
+  const [showTelegramDialog, setShowTelegramDialog] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,7 +17,6 @@ function Header() {
   const connectWallet = async () => {
     console.log("Attempting to connect wallet...");
     
-    // Check if the wallet is installed
     if (!window.ethereum) {
       setError('No crypto wallet found. Please install MetaMask or Phantom.');
       return;
@@ -25,6 +25,7 @@ function Header() {
     try {
       await activate(injected);
       setError('');
+      onWalletConnect(); // Trigger the dialog through the callback
     } catch (err) {
       console.error("Connection error:", err);
       setError(err.message);
@@ -42,6 +43,12 @@ function Header() {
   // Format wallet address for display
   const formatAddress = (address) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  };
+
+  const goToTelegramBot = () => {
+    const telegramBotUrl = `https://t.me/your_bot_username?start=${account}`;
+    window.open(telegramBotUrl, '_blank');
+    setShowTelegramDialog(false); // Close dialog after redirect
   };
 
   return (
@@ -113,6 +120,18 @@ function Header() {
           )}
         </div>
       </div>
+
+      {/* Telegram Registration Dialog */}
+      {showTelegramDialog && (
+        <div className="telegram-dialog">
+          <div className="dialog-content">
+            <h3>Register for Updates</h3>
+            <p>Would you like to receive updates about your lottery wins on Telegram?</p>
+            <button onClick={goToTelegramBot}>Yes, send me to Telegram!</button>
+            <button onClick={() => setShowTelegramDialog(false)}>No, thanks</button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
