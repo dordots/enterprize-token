@@ -99,16 +99,17 @@
 }
 
 .btc {
-  width: 100px;
+  width: 250px;
+  height: auto;
   top: 40%;
-  left: 10%;
-  animation-delay: 2s;
+  left: 8%;
+  animation-delay: 4s;
 }
 
 .prize {
-  width: 120px;
-  bottom: 20%;
-  right: 20%;
+  width: 160px;
+  bottom: 10%;
+  right: 15%;
   animation-delay: 0s;
 }
 
