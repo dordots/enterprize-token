@@ -7,7 +7,7 @@ function HeroSection({ showTelegramDialog, setShowTelegramDialog }) {
   const { account } = useWeb3React();
 
   const goToTelegramBot = () => {
-    const telegramBotUrl = `https://t.me/your_bot_username?start=${account}`;
+    const telegramBotUrl = `https://t.me/EnterPrizeTokenBot?start=${account}`;
     window.open(telegramBotUrl, '_blank');
     setShowTelegramDialog(false);
   };

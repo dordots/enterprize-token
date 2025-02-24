@@ -44,9 +44,9 @@ function Header({ onWalletConnect }) {
   const formatAddress = (address) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
-
+  
   const goToTelegramBot = () => {
-    const telegramBotUrl = `https://t.me/your_bot_username?start=${account}`;
+    const telegramBotUrl = `https://t.me/EnterPrizeTokenBot?start=${account}`;
     window.open(telegramBotUrl, '_blank');
     setShowTelegramDialog(false); // Close dialog after redirect
   };
@@ -61,7 +61,7 @@ function Header({ onWalletConnect }) {
         <div className="header-right">
           <div className="social-links">
             <motion.a 
-              href="https://t.me/yourtelegram" 
+              href="https://t.me/EnterPrizeTokenBot" 
               className="social-link"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
