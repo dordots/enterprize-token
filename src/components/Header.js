@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useWeb3React } from '@web3-react/core';
 import { injected } from '../utils/web3Config';
+import { isMobileDevice, isPhantomInstalled, buildPhantomDeepLink } from '../utils/mobileWallet';
+import MobileWalletModal from './MobileWalletModal';
 import './Header.css'; // ניצור קובץ CSS לרכיב זה
 
 function Header({ onWalletConnect }) {
@@ -9,6 +11,7 @@ function Header({ onWalletConnect }) {
   const { active, account, activate, deactivate } = useWeb3React();
   const [error, setError] = useState('');
   const [showTelegramDialog, setShowTelegramDialog] = useState(false);
+  const [showMobileWalletModal, setShowMobileWalletModal] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,20 +19,49 @@ function Header({ onWalletConnect }) {
 
   const connectWallet = async () => {
     console.log("Attempting to connect wallet...");
-    
-    if (!window.ethereum) {
-      setError('No crypto wallet found. Please install MetaMask or Phantom.');
-      return;
-    }
+    setError('');
 
-    try {
-      await activate(injected);
-      setError('');
-      onWalletConnect(); // Trigger the dialog through the callback
-    } catch (err) {
-      console.error("Connection error:", err);
-      setError(err.message);
+    const isMobile = isMobileDevice();
+    
+    if (isMobile) {
+      // Handle mobile connection
+      if (isPhantomInstalled()) {
+        // If Phantom is installed, try to connect
+        try {
+          await activate(injected);
+          onWalletConnect();
+        } catch (err) {
+          console.error("Mobile connection error:", err);
+          setError(err.message);
+        }
+      } else {
+        // Show mobile wallet modal if Phantom is not installed
+        setShowMobileWalletModal(true);
+      }
+    } else {
+      // Desktop connection logic
+      if (!window.ethereum) {
+        setError('No crypto wallet found. Please install MetaMask or Phantom.');
+        return;
+      }
+
+      try {
+        await activate(injected);
+        onWalletConnect();
+      } catch (err) {
+        console.error("Desktop connection error:", err);
+        setError(err.message);
+      }
     }
+  };
+
+  const handleMobileConnect = () => {
+    // Get the current URL for deep linking back to the dapp
+    const dappURL = window.location.href;
+    const deepLink = buildPhantomDeepLink(dappURL);
+    
+    // Open Phantom app or redirect to app store
+    window.location.href = deepLink;
   };
 
   const disconnectWallet = async () => {
@@ -48,7 +80,7 @@ function Header({ onWalletConnect }) {
   const goToTelegramBot = () => {
     const telegramBotUrl = `https://t.me/EnterPrizeTokenBot?start=${account}`;
     window.open(telegramBotUrl, '_blank');
-    setShowTelegramDialog(false); // Close dialog after redirect
+    setShowTelegramDialog(false);
   };
 
   return (
@@ -120,6 +152,13 @@ function Header({ onWalletConnect }) {
           )}
         </div>
       </div>
+
+      {/* Mobile Wallet Modal */}
+      <MobileWalletModal
+        isOpen={showMobileWalletModal}
+        onClose={() => setShowMobileWalletModal(false)}
+        onConnect={handleMobileConnect}
+      />
 
       {/* Telegram Registration Dialog */}
       {showTelegramDialog && (
