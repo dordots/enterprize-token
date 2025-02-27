@@ -24,20 +24,8 @@ function Header({ onWalletConnect }) {
     const isMobile = isMobileDevice();
     
     if (isMobile) {
-      // Handle mobile connection
-      if (isPhantomInstalled()) {
-        // If Phantom is installed, try to connect
-        try {
-          await activate(injected);
-          onWalletConnect();
-        } catch (err) {
-          console.error("Mobile connection error:", err);
-          setError(err.message);
-        }
-      } else {
-        // Show mobile wallet modal if Phantom is not installed
-        setShowMobileWalletModal(true);
-      }
+      // Show modal with instructions
+      setShowMobileWalletModal(true);
     } else {
       // Desktop connection logic
       if (!window.ethereum) {
@@ -55,13 +43,22 @@ function Header({ onWalletConnect }) {
     }
   };
 
+  // Function to handle mobile wallet connection
   const handleMobileConnect = () => {
-    // Get the current URL for deep linking back to the dapp
-    const dappURL = window.location.href;
-    const deepLink = buildPhantomDeepLink(dappURL);
+    const currentURL = window.location.origin;
+    const phantomBrowseURL = `https://phantom.app/ul/browse/${encodeURIComponent(currentURL)}?ref=${encodeURIComponent(currentURL)}`;
     
-    // Open Phantom app or redirect to app store
-    window.location.href = deepLink;
+    // Open the URL
+    window.location.href = phantomBrowseURL;
+  };
+
+  // Function to handle app store redirect
+  const handleGetPhantom = () => {
+    const appStoreLink = /iPhone|iPad|iPod/.test(navigator.userAgent)
+      ? 'https://apps.apple.com/app/phantom-solana-wallet/id1598432977'
+      : 'https://play.google.com/store/apps/details?id=app.phantom';
+    
+    window.open(appStoreLink, '_blank');
   };
 
   const disconnectWallet = async () => {
@@ -82,6 +79,20 @@ function Header({ onWalletConnect }) {
     window.open(telegramBotUrl, '_blank');
     setShowTelegramDialog(false);
   };
+
+  // Add effect to handle body class
+  useEffect(() => {
+    if (showMobileWalletModal) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [showMobileWalletModal]);
 
   return (
     <header className="header">
@@ -158,6 +169,7 @@ function Header({ onWalletConnect }) {
         isOpen={showMobileWalletModal}
         onClose={() => setShowMobileWalletModal(false)}
         onConnect={handleMobileConnect}
+        onGetPhantom={handleGetPhantom}
       />
 
       {/* Telegram Registration Dialog */}
