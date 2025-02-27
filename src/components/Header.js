@@ -23,21 +23,37 @@ function Header({ onWalletConnect }) {
 
     const isMobile = isMobileDevice();
     
-    if (isMobile) {
-      // Show modal with instructions
-      setShowMobileWalletModal(true);
-    } else {
-      // Desktop connection logic
-      if (!window.ethereum) {
-        setError('No crypto wallet found. Please install MetaMask or Phantom.');
-        return;
-      }
-
-      try {
+    try {
+      // נסה להתחבר ישירות לארנק (בין אם במובייל או בדסקטופ)
+      if (isMobile) {
+        // במובייל, נסה להתחבר לארנק סולנה אם זמין
+        if (window.solana) {
+          const response = await window.solana.connect();
+          console.log("Connected to Solana wallet:", response.publicKey.toString());
+          onWalletConnect();
+        } else {
+          // אם אין ארנק זמין במובייל, פתח את האתר בפנטום
+          console.log("No wallet available on mobile, opening in Phantom");
+          handleMobileConnect();
+        }
+      } else {
+        // בדסקטופ, השתמש ב-web3-react
+        if (!window.ethereum) {
+          setError('No crypto wallet found. Please install MetaMask or Phantom.');
+          return;
+        }
+        
         await activate(injected);
         onWalletConnect();
-      } catch (err) {
-        console.error("Desktop connection error:", err);
+      }
+    } catch (err) {
+      console.error("Connection error:", err);
+      
+      if (isMobile) {
+        // אם ההתחברות נכשלה במובייל, הצג את המודאל
+        console.log("Failed to connect on mobile, showing modal");
+        setShowMobileWalletModal(true);
+      } else {
         setError(err.message);
       }
     }
