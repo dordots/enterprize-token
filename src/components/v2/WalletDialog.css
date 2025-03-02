@@ -1,0 +1,127 @@
+.wallet-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.wallet-dialog {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.close-button:hover {
+  opacity: 1;
+}
+
+.wallet-status {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wallet-status h3 {
+  font-size: 1.5rem;
+  color: #FF6B00;
+  margin-bottom: 1rem;
+}
+
+.wallet-address {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+.telegram-section {
+  text-align: center;
+}
+
+.telegram-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.telegram-section p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.telegram-button,
+.skip-button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.telegram-button {
+  background: linear-gradient(45deg, #FF6B00, #FF8E3C);
+  color: white;
+}
+
+.skip-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.telegram-button:hover,
+.skip-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .wallet-dialog {
+    padding: 1.5rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .telegram-button,
+  .skip-button {
+    width: 100%;
+  }
+} 

@@ -1,0 +1,135 @@
+.how-it-works-v2 {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.how-it-works-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #FF6B00, #FF8E3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.1);
+}
+
+.step-card.highlighted {
+  background: rgba(255, 107, 0, 0.1);
+  border: 2px solid rgba(255, 107, 0, 0.3);
+}
+
+.step-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.step-card h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.step-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.telegram-emphasis {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.telegram-emphasis p {
+  color: #FF6B00;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.telegram-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #FF6B00, #FF8E3C);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.telegram-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 0, 0.2);
+}
+
+.telegram-note {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255, 107, 0, 0.1);
+  border-radius: 15px;
+}
+
+.telegram-note p {
+  color: #FF6B00;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .how-it-works-v2 {
+    padding: 60px 20px;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    padding: 25px;
+  }
+} 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useWeb3React } from '@web3-react/core';
 import { injected } from '../utils/web3Config';
-import { isMobileDevice, isPhantomInstalled, buildPhantomDeepLink } from '../utils/mobileWallet';
+import { isMobileDevice } from '../utils/mobileWallet';
 import MobileWalletModal from './MobileWalletModal';
 import './Header.css'; // ניצור קובץ CSS לרכיב זה
 

@@ -1,0 +1,158 @@
+.winners-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.winners-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #FF6B00, #FF8E3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.coming-soon {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 107, 0, 0.05);
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.coming-soon-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.coming-soon h3 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #FF6B00, #FF8E3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.coming-soon p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+}
+
+.winners-cta {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.winners-cta .cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(45deg, #FF6B00, #FF8E3C);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  min-width: 200px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.winners-cta .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 0, 0.2);
+}
+
+/* Styles for when we have winners */
+.winners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .winners-section {
+    padding: 60px 15px;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .coming-soon {
+    padding: 40px 15px;
+    margin: 30px 15px;
+  }
+
+  .coming-soon h3 {
+    font-size: 2rem;
+  }
+
+  .coming-soon p {
+    font-size: 1.1rem;
+    padding: 0 10px;
+  }
+
+  .winners-cta {
+    padding: 15px;
+  }
+
+  .winners-cta .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    width: calc(100% - 30px);
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .winners-section {
+    padding: 40px 10px;
+  }
+
+  .coming-soon {
+    padding: 30px 10px;
+    margin: 20px 10px;
+  }
+
+  .coming-soon h3 {
+    font-size: 1.8rem;
+  }
+
+  .coming-soon p {
+    font-size: 1rem;
+  }
+
+  .winners-cta {
+    padding: 10px;
+  }
+
+  .winners-cta .cta-button {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    width: calc(100% - 20px);
+    max-width: 250px;
+  }
+} 

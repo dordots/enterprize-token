@@ -1,0 +1,198 @@
+.tokenomics {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.tokenomics-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #FF6B00, #FF8E3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.tokenomics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.distribution-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.chart-segment {
+  width: 60px;
+  border-radius: 10px 10px 0 0;
+  transform-origin: bottom;
+}
+
+.distribution-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.distribution-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.distribution-item:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.color-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.item-header h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.percentage {
+  color: #FF6B00;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.distribution-item p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.tokenomics-features {
+  background: rgba(255, 107, 0, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  border: 2px solid rgba(255, 107, 0, 0.3);
+}
+
+.tokenomics-features h3 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 30px;
+  background: linear-gradient(45deg, #FF6B00, #FF8E3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tokenomics-features ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.tokenomics-features li {
+  color: white;
+  font-size: 1.1rem;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.tokenomics-features li:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 968px) {
+  .tokenomics-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .chart-container {
+    height: 300px;
+  }
+
+  .chart-segment {
+    width: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tokenomics {
+    padding: 60px 20px;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .chart-container {
+    height: 250px;
+  }
+
+  .chart-segment {
+    width: 30px;
+  }
+
+  .tokenomics-features {
+    padding: 30px 20px;
+  }
+
+  .tokenomics-features h3 {
+    font-size: 1.8rem;
+  }
+
+  .tokenomics-features ul {
+    grid-template-columns: 1fr;
+  }
+} 

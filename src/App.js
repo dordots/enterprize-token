@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import SplashScreen from './components/SplashScreen';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import HowItWorks from './components/HowItWorks';
-import ValueProposition from './components/ValueProposition';
-import WhyChooseUs from './components/WhyChooseUs';
-import Testimonials from './components/Testimonials';
-import Footer from './components/Footer';
-import Countdown from './components/Countdown';
 import { Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
+import V1Home from './pages/V1Home';
+import V2Home from './pages/V2Home';
+import SplashScreen from './components/SplashScreen';
 import './App.css';
 
 function getLibrary(provider) {
@@ -21,7 +16,6 @@ function getLibrary(provider) {
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [showTelegramDialog, setShowTelegramDialog] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 3000);
@@ -29,19 +23,15 @@ function App() {
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <AnimatePresence>
-        {loading && <SplashScreen />}
-      </AnimatePresence>
-      <div className="App">
-        <Header onWalletConnect={() => setShowTelegramDialog(true)} />
-        <HeroSection showTelegramDialog={showTelegramDialog} setShowTelegramDialog={setShowTelegramDialog} />
-        <HowItWorks />
-        <ValueProposition />
-        <WhyChooseUs />
-        <Testimonials />
-        <Countdown />
-        <Footer />
-      </div>
+      <Router>
+        <AnimatePresence>
+          {loading && <SplashScreen />}
+        </AnimatePresence>
+        <Routes>
+          <Route path="/" element={<V1Home />} />
+          <Route path="/v2" element={<V2Home />} />
+        </Routes>
+      </Router>
     </Web3ReactProvider>
   );
 }
